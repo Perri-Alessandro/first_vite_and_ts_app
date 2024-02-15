@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Article = ({ article }: { article: ArticleInterface }) => {
   return (
     <Col xs={12} md={4} className="text-center">
-      <Card>
+      <Card className="row justify-content-center align-items-center">
         <Card.Img variant="top" src={article.image_url} />
         <Card.Body>
           <Card.Title>{article.title}</Card.Title>

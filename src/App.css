@@ -35,8 +35,13 @@
 
 .card {
   padding: 2em;
+  height: 95vh;
 }
 
 .read-the-docs {
   color: #888;
+}
+
+.card img {
+  height: 15vh;
 }
