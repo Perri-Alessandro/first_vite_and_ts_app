@@ -38,6 +38,7 @@ const Detail = () => {
 
   useEffect(() => {
     getDetail();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
   if (!articlee) {
@@ -66,7 +67,9 @@ const Detail = () => {
           </Row>
 
           <p className="mt-2">{articlee.summary}</p>
-          <a href={articlee.url} target="_blank" className="text-black"></a>
+          <a href={articlee.url} target="_blank">
+            {articlee.url}
+          </a>
         </Col>
       </Row>
     </Container>
