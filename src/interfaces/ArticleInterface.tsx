@@ -5,7 +5,7 @@ interface Article {
   content: string;
   date: string;
   tags: string[];
-  imageUrl: string;
+  image_url: string;
 }
 
 export default Article;
