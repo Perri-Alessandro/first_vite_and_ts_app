@@ -33,7 +33,7 @@ const AllArticles = () => {
       <Row className="justify-content-center text-info mb-3">
         <h2>VIAGGI SPAZIALI DISPONIBILI</h2>
       </Row>
-      <Row className="justify-content-center">
+      <Row className="justify-content-center g-3">
         {articles.map((article) => (
           <Article article={article} key={article.id} />
         ))}
