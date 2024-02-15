@@ -2,23 +2,32 @@ import { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
 
+interface Article {
+  title: string;
+  image_url: string;
+  summary: string;
+  url: string;
+  news_site: string;
+  published_at: string;
+}
+
 const Detail = () => {
   const { id } = useParams();
-  const [article, setArticle] = useState(null);
+  const [articlee, setArticlee] = useState<Article | null>(null);
 
   const getDetail = () =>
     fetch(`https://api.spaceflightnewsapi.net/v4/articles/${id}`)
       .then((res) => {
         if (res.ok) {
-          console.log("INC ONTATTO CON IL SERVER", res);
+          console.log("IN CONTATTO CON IL SERVER DA FETCH ID", res);
           return res.json();
         } else {
           throw new Error("RISPOSTA NON OK RICEVUTA DAL SERVER IN FETCH ID");
         }
       })
-      .then((data) => {
+      .then((data: Article) => {
         console.log("DATI RICEVUTI DAL SERVER IN FETCH ID", data);
-        setArticle(data);
+        setArticlee(data);
       })
       .catch((err) => {
         console.log(
@@ -31,20 +40,33 @@ const Detail = () => {
     getDetail();
   }, [id]);
 
-  if (!article) {
+  if (!articlee) {
     return <div>Caricamento in corso...</div>;
   }
 
   return (
     <Container>
       <Row>
-        <Link to="/">HOME</Link>
+        <Link className="fixed-top mt-3" to="/">
+          HOME
+        </Link>
       </Row>
       <Row>
+        <Col xs={12}>
+          <p>PUBLISHED: {articlee.published_at}</p>
+        </Col>
         <Col>
-          <h2>{article.title}</h2>
-          <p>{article.summary}</p>
-          <a href={article.url} target="_blank" rel="noreferrer"></a>
+          <h2 className="text-info">{articlee.title}</h2>
+          <a href={articlee.news_site} target="_blank">
+            FROM {""}
+            {articlee.news_site}
+          </a>
+          <Row>
+            <img src={articlee.image_url} alt="foto viaggi" className="col" />
+          </Row>
+
+          <p className="mt-2">{articlee.summary}</p>
+          <a href={articlee.url} target="_blank" className="text-black"></a>
         </Col>
       </Row>
     </Container>
