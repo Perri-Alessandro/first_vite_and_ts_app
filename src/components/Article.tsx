@@ -1,5 +1,6 @@
 import { Col, Card } from "react-bootstrap";
 import ArticleInterface from "../interfaces/ArticleInterface";
+import { Link } from "react-router-dom";
 
 const Article = ({ article }: { article: ArticleInterface }) => {
   return (
@@ -9,8 +10,10 @@ const Article = ({ article }: { article: ArticleInterface }) => {
         <Card.Body>
           <Card.Title>{article.title}</Card.Title>
           <Card.Text>{article.summary}</Card.Text>
+          <Card.Text>{article.updated_at}</Card.Text>
         </Card.Body>
       </Card>
+      <Link to={`/article/${article.id}`}>VIENI A SCOPRIRE I DETTAGLI</Link>
     </Col>
   );
 };

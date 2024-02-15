@@ -6,6 +6,8 @@ interface Article {
   date: string;
   tags: string[];
   image_url: string;
+  summary: string;
+  updated_at: string;
 }
 
 export default Article;

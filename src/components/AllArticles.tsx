@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 import Article from "./Article";
 import ArticleInterface from "../interfaces/ArticleInterface";
 
@@ -30,7 +30,7 @@ const AllArticles = () => {
 
   return (
     <Container>
-      <Row className="justify-content-center text-info">
+      <Row className="justify-content-center text-info mb-3">
         <h2>VIAGGI SPAZIALI DISPONIBILI</h2>
       </Row>
       <Row className="justify-content-center">
