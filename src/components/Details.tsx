@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const Detail = () => {
   const { id } = useParams();
@@ -37,6 +37,9 @@ const Detail = () => {
 
   return (
     <Container>
+      <Row>
+        <Link to="/">HOME</Link>
+      </Row>
       <Row>
         <Col>
           <h2>{article.title}</h2>
